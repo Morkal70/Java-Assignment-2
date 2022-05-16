@@ -1,51 +1,26 @@
 /**Author: Matthew Toon - M1001886*/
 package cakemachine;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.time.format.DateTimeFormatter;
 
 public class CakeMachine {
     private static int menuOption = -1;
-    private static String username, cakeName, ingredients, instructions, cakeToDelete;
-    private static String cakeArray[] = new String[3];
-    private static ArrayList<String[]> recipeList = new ArrayList<String[]>();
+    private static String username, cakeName, ingredients, instructions, cakeToDelete, orderToDelete;
+    private static ArrayList<String> recipeList = new ArrayList<String>();
+    private static ArrayList<String> orderList = new ArrayList<String>();
+    private static ArrayList<String> oldOrders = new ArrayList<String>();
     private static Scanner SC = new Scanner(System.in);
     private static Scanner recipeSC = new Scanner(System.in);
     private static Scanner deleteSC = new Scanner(System.in);
+    private static Scanner orderSC = new Scanner(System.in);
+    private static Scanner deleteOrderSC = new Scanner(System.in);
 
     public static void main(String[] args) {
         mainMenu();
     }
-
-    /**public class Recipe(String cakeName, String ingredients, String instructions) {
-
-
-    public String getCakeName() {
-        return cakeName;
-    }
-
-    public void setCakeName(cakeName) {
-        this.cakeName = cakeName;
-    }
-
-    public String getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(ingredients) {
-        this.ingredients = ingredients;
-    }
-
-    public String getInstructions() {
-        return instructions;
-    }
-
-    //public void setInstructions(instructions) {
-        this.ingredients = ingredients;
-    }
-}*/  // should this bracket encapsulate?
-
     private static void mainMenu() {
         if (username == null) {
             getName();
@@ -65,21 +40,19 @@ public class CakeMachine {
             menuOption = SC.nextInt();
 
             if (menuOption == 1) {
-                //addRecipeObject
-                addRecipeArray();
+                addRecipe();
             } else if (menuOption == 2) {
-                //deleteRecipeObject
-                deleteRecipeArray();
+               deleteRecipe();
             } else if (menuOption == 3) {
-                //addOrder();
+                addOrder();
             } else if (menuOption == 4) {
-                //deleteOrder();
+                deleteOrder();
             } else if (menuOption == 5) {
                 //oldOrders();
             } else if (menuOption == 6) {
-                //ordersDue();
+                //dueOrders();
             } else if (menuOption == 7) {
-                //totalIngredients();
+                totalIngredients();
             } else if (menuOption == 0) {
                 System.exit(0);
             } else {
@@ -90,58 +63,87 @@ public class CakeMachine {
     }//mainMenu
 
     private static void getName() {
-        System.out.println("Please enter your name");
+        System.out.println("Please enter your name.");
         username = SC.nextLine();
         System.out.println("Your username: " + username);
         //add validation later to check correct input
     }
 
-   /** private static void addRecipeObject() {
-        Recipe recipe = new Recipe();
-        recipe.setCakeName();
-        recipe.setIngredients();
-        System.out.println("Please enter the cake name");
-        cakeName = recipeSC.nextLine();
-        recipeList.add(cakeName);
-        System.out.println("Please enter the cake ingredients");
-        ingredients = recipeSC.nextLine();
-        recipeList.add(ingredients);
-        System.out.println("Please enter the cake instructions");
-        instructions = recipeSC.nextLine();
-        recipeList.add(instructions);
-
-    }*/
-
-    private static void addRecipeArray(){
-        System.out.println("Please enter the cake name");
-        cakeArray[0] = recipeSC.nextLine();
-        System.out.println("Please enter the cake ingredients");
-        cakeArray[1] = recipeSC.nextLine();
-        System.out.println("Please enter the cake instructions");
-        cakeArray[2] = recipeSC.nextLine();
-        System.out.println("You entered: " + Arrays.toString(cakeArray));
-        recipeList.add(cakeArray);
-        System.out.println(Arrays.deepToString(recipeList.toArray()));
-
-    }
-    /**private static void deleteRecipeObject() {
+    private static void addRecipe(){
         System.out.println("Please enter the name of the cake.");
-        cakeName = deleteSC.nextLine();
-      for (int i=0; i<recipeList.size(); i++) {
-          if (recipeList.get(i).cakeName.equals(cakeName)); {
-              recipeList.remove(i);
-              break;
-          }
-      }
-    }*/
-
-    private static void deleteRecipeArray(){
-        System.out.println("Please enter the name of the cake to delete.");
-        cakeName = deleteSC.nextLine();
-        
-
+        recipeList.add(recipeSC.nextLine());
+        System.out.println("Please enter the ingredients.");
+        recipeList.add(recipeSC.nextLine());
+        System.out.println("Please enter the instructions.");
+        recipeList.add(recipeSC.nextLine());
+        System.out.println(recipeList);
     }
 
 
+    private static void deleteRecipe() {
+        System.out.println("Please enter the name of the cake to delete.");
+        cakeToDelete = deleteSC.nextLine();
+        for (int i = 0; i < recipeList.size(); i++) {
+            if (recipeList.get(i).contains(cakeToDelete)) {
+                recipeList.remove(i);
+                recipeList.remove(i);
+                recipeList.remove(i);
+            }
+        } System.out.println(recipeList);
+    }
+    private static void addOrder(){
+        System.out.println("Please enter the client's name.");
+        orderList.add(orderSC.nextLine());
+        System.out.println("Please enter the client's contact details.");
+        orderList.add(orderSC.nextLine());
+        System.out.println("Please enter the delivery address.");
+        orderList.add(orderSC.nextLine());
+        LocalDate orderDate = LocalDate.now();
+        orderList.add(String.valueOf(orderDate)); //automatically adds today's date as string to list
+        LocalDate deliveryDate = orderDate.plusDays(3);
+        orderList.add(String.valueOf(deliveryDate));
+        System.out.println("Please enter the type of cake.");
+        orderList.add(orderSC.nextLine());
+        System.out.println("Please enter the cake size.");
+        orderList.add(orderSC.nextLine());
+        System.out.println("Please enter the cake shape.");
+        orderList.add(orderSC.nextLine());
+        System.out.println(orderList);
 
+    }
+    private static void deleteOrder(){
+        System.out.println("Please enter the name of the client to delete their order.");
+        orderToDelete = deleteOrderSC.nextLine();
+        for (int i = 0; i < orderList.size(); i++) {
+            if (orderList.get(i).contains(orderToDelete)) {
+                orderList.remove(i);
+                orderList.remove(i);
+                orderList.remove(i);
+                orderList.remove(i);
+                orderList.remove(i);
+                orderList.remove(i);
+                orderList.remove(i);
+                orderList.remove(i);
+            }
+        } System.out.println(orderList);
+    }
+    private static void oldOrders(){
+        LocalDate date = LocalDate.parse("2018-05-05"); // add me further down
+        for (int i = 0; i < orderList.size(); i++) {
+            //if (orderList.get(i).contains
+        }
+    }
+    private static void dueOrders(){
+
+    }
+    private static void totalIngredients(){
+        System.out.println("The ingredients for due orders is as follows:");
+        for (int i = 0; i < orderList.size(); i++){
+            if (orderList.get(i).contains(recipeList.get(i))){
+                i++;
+                System.out.println(recipeList.get(i));
+                System.out.println("-----------------------------------------------------------------------");
+            }
+        }
+    }
 }
