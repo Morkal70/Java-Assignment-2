@@ -2,9 +2,10 @@
 package cakemachine;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
 
 public class CakeMachine {
     private static int menuOption = -1;
@@ -12,6 +13,7 @@ public class CakeMachine {
     private static ArrayList<String> recipeList = new ArrayList<String>();
     private static ArrayList<String> orderList = new ArrayList<String>();
     private static ArrayList<String> oldOrders = new ArrayList<String>();
+    private static ArrayList<String> ordersDue = new ArrayList<String>();
     private static Scanner SC = new Scanner(System.in);
     private static Scanner recipeSC = new Scanner(System.in);
     private static Scanner deleteSC = new Scanner(System.in);
@@ -127,19 +129,29 @@ public class CakeMachine {
             }
         } System.out.println(orderList);
     }
+    //https://stackoverflow.com/questions/33968333/how-to-check-if-a-string-is-date
+    //https://www.tutorialspoint.com/how-to-compare-two-dates-in-java
     private static void oldOrders(){
-        LocalDate date = LocalDate.parse("2018-05-05"); // add me further down
-        for (int i = 0; i < orderList.size(); i++) {
-            //if (orderList.get(i).contains
+        String deliveryDate = orderList.get(4); //stores index 4 inside new string
+        LocalDate date = LocalDate.parse(deliveryDate); // converts delivery date string to actual date
+        LocalDate today = LocalDate.now();
+        if (deliveryDate.compareTo(today) > 0) {
+            System.out.println("delivery date occurs AFTER today's date");
+        } else if (deliveryDate.compareTo(today) < 0) {
+            System.out.println("delivery date occurs BEFORE today's date"); //move elements 0-7 to new list, print list
+        } else if (deliveryDate.compareTo(today) == 0) {
+            System.out.println("delivery date is today");
         }
+        //repeat process if index 4 is still populated
+        //finish by printing list
     }
     private static void dueOrders(){
-
+        //same idea as oldOrders, but check if delivery date is AFTER today, or today - move entire order to new list, print list
     }
     private static void totalIngredients(){
         System.out.println("The ingredients for due orders is as follows:");
-        for (int i = 0; i < orderList.size(); i++){
-            if (orderList.get(i).contains(recipeList.get(i))){
+        for (int i = 0; i < ordersDue.size(); i++){
+            if (ordersDue.get(i).contains(recipeList.get(i))){
                 i++;
                 System.out.println(recipeList.get(i));
                 System.out.println("-----------------------------------------------------------------------");
