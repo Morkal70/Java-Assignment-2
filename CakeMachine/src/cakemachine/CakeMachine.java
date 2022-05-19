@@ -1,11 +1,14 @@
 /**Author: Matthew Toon - M1001886*/
 package cakemachine;
 
+import java.util.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.text.SimpleDateFormat;
+
+
 
 public class CakeMachine {
     private static int menuOption = -1;
@@ -21,6 +24,8 @@ public class CakeMachine {
     private static Scanner deleteOrderSC = new Scanner(System.in);
 
     public static void main(String[] args) {
+        recipeTestData();
+        orderTestData();
         mainMenu();
     }
     private static void mainMenu() {
@@ -50,9 +55,9 @@ public class CakeMachine {
             } else if (menuOption == 4) {
                 deleteOrder();
             } else if (menuOption == 5) {
-                //oldOrders();
+                oldOrders();
             } else if (menuOption == 6) {
-                //dueOrders();
+                dueOrders();
             } else if (menuOption == 7) {
                 totalIngredients();
             } else if (menuOption == 0) {
@@ -64,6 +69,47 @@ public class CakeMachine {
 
     }//mainMenu
 
+    private static void recipeTestData() {
+        recipeList.add("Vanilla");
+        recipeList.add("Ingredients");
+        recipeList.add("Instructions");
+        recipeList.add("Chocolate");
+        recipeList.add("Ingredients");
+        recipeList.add("Instructions");
+        recipeList.add("Vanilla");
+        recipeList.add("Ingredients");
+        recipeList.add("Instructions");
+        
+    }
+    
+    private static void orderTestData() {
+        ordersDue.add("Duncan");
+        ordersDue.add("contact details");
+        ordersDue.add("delivery address");
+        ordersDue.add("2022-05-10"); //order date
+        ordersDue.add("2022-05-13"); //delivery date
+        ordersDue.add("Chocolate");
+        ordersDue.add("large");
+        ordersDue.add("heart");
+        ordersDue.add("Duncan");
+        ordersDue.add("contact details");
+        ordersDue.add("delivery address");
+        ordersDue.add("2022-05-19"); //order date
+        ordersDue.add("2022-05-22"); //delivery date
+        ordersDue.add("Vanilla");
+        ordersDue.add("large");
+        ordersDue.add("heart");
+        ordersDue.add("Duncan1");
+        ordersDue.add("contact details");
+        ordersDue.add("delivery address");
+        ordersDue.add("2022-05-19"); //order date
+        ordersDue.add("2022-05-22"); //delivery date
+        ordersDue.add("Vanilla");
+        ordersDue.add("large");
+        ordersDue.add("heart");
+        
+    }
+    
     private static void getName() {
         System.out.println("Please enter your name.");
         username = SC.nextLine();
@@ -110,7 +156,7 @@ public class CakeMachine {
         orderList.add(orderSC.nextLine());
         System.out.println("Please enter the cake shape.");
         orderList.add(orderSC.nextLine());
-        System.out.println(orderList);
+        System.out.println("orderList: " + orderList);
 
     }
     private static void deleteOrder(){
@@ -127,7 +173,8 @@ public class CakeMachine {
                 orderList.remove(i);
                 orderList.remove(i);
             }
-        } System.out.println(orderList);
+        } 
+        System.out.println("orderList: " + orderList);
     }
     //https://stackoverflow.com/questions/33968333/how-to-check-if-a-string-is-date
     //https://www.tutorialspoint.com/how-to-compare-two-dates-in-java
@@ -135,27 +182,175 @@ public class CakeMachine {
         String deliveryDate = orderList.get(4); //stores index 4 inside new string
         LocalDate date = LocalDate.parse(deliveryDate); // converts delivery date string to actual date
         LocalDate today = LocalDate.now();
-        if (deliveryDate.compareTo(today) > 0) {
+        if (date.compareTo(today) > 0) {
             System.out.println("delivery date occurs AFTER today's date");
-        } else if (deliveryDate.compareTo(today) < 0) {
+            ordersDue.add(orderList.get(0));
+            ordersDue.add(orderList.get(1));
+            ordersDue.add(orderList.get(2));
+            ordersDue.add(orderList.get(3));
+            ordersDue.add(orderList.get(4));
+            ordersDue.add(orderList.get(5));
+            ordersDue.add(orderList.get(6));
+            ordersDue.add(orderList.get(7));
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            System.out.println("ordersDue: " + ordersDue);
+            System.out.println("orderList: " + orderList);
+            
+        } else if (date.compareTo(today) < 0) {
             System.out.println("delivery date occurs BEFORE today's date"); //move elements 0-7 to new list, print list
-        } else if (deliveryDate.compareTo(today) == 0) {
+            oldOrders.add(orderList.get(0));
+            oldOrders.add(orderList.get(1));
+            oldOrders.add(orderList.get(2));
+            oldOrders.add(orderList.get(3));
+            oldOrders.add(orderList.get(4));
+            oldOrders.add(orderList.get(5));
+            oldOrders.add(orderList.get(6));
+            oldOrders.add(orderList.get(7));
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            System.out.println("oldOrders: "+ oldOrders);
+            System.out.println("orderList: "+ orderList);
+            
+        } else if (date.compareTo(today) == 0) {
             System.out.println("delivery date is today");
+            ordersDue.add(orderList.get(0));
+            ordersDue.add(orderList.get(1));
+            ordersDue.add(orderList.get(2));
+            ordersDue.add(orderList.get(3));
+            ordersDue.add(orderList.get(4));
+            ordersDue.add(orderList.get(5));
+            ordersDue.add(orderList.get(6));
+            ordersDue.add(orderList.get(7));
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            System.out.println("ordersDue: " + ordersDue);
+            System.out.println("orderList: " + orderList);          
+        } else {
+            System.out.println("ordersDue: " + ordersDue);
         }
+        //if (orderList != null) {
+        //    oldOrders();
+        //} else {
+        //    mainMenu();
+        //}
+       
         //repeat process if index 4 is still populated
         //finish by printing list
     }
+    
     private static void dueOrders(){
-        //same idea as oldOrders, but check if delivery date is AFTER today, or today - move entire order to new list, print list
+        //same idea as oldOrders, but check if delivery date is AFTER today, or == today, then move entire order to new list, print list
+        String deliveryDate = orderList.get(4);
+        LocalDate date = LocalDate.parse(deliveryDate);
+        LocalDate today = LocalDate.now();
+        if (date.compareTo(today) > 0) {
+            System.out.println("delivery date occurs AFTER today's date");
+            ordersDue.add(orderList.get(0));
+            ordersDue.add(orderList.get(1));
+            ordersDue.add(orderList.get(2));
+            ordersDue.add(orderList.get(3));
+            ordersDue.add(orderList.get(4));
+            ordersDue.add(orderList.get(5));
+            ordersDue.add(orderList.get(6));
+            ordersDue.add(orderList.get(7));
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            System.out.println("ordersDue: " + ordersDue);
+            System.out.println("orderList: " + orderList); 
+            
+        } else if (date.compareTo(today) < 0) {
+            System.out.println("delivery date occurs BEFORE today's date"); //move elements 0-7 to new list, print list
+            oldOrders.add(orderList.get(0));
+            oldOrders.add(orderList.get(1));
+            oldOrders.add(orderList.get(2));
+            oldOrders.add(orderList.get(3));
+            oldOrders.add(orderList.get(4));
+            oldOrders.add(orderList.get(5));
+            oldOrders.add(orderList.get(6));
+            oldOrders.add(orderList.get(7));
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            System.out.println("oldOrders: "+ oldOrders);
+            System.out.println("orderList: "+ orderList);
+            
+        } else if (date.compareTo(today) == 0) {
+            System.out.println("delivery date is today");
+            ordersDue.add(orderList.get(0));
+            ordersDue.add(orderList.get(1));
+            ordersDue.add(orderList.get(2));
+            ordersDue.add(orderList.get(3));
+            ordersDue.add(orderList.get(4));
+            ordersDue.add(orderList.get(5));
+            ordersDue.add(orderList.get(6));
+            ordersDue.add(orderList.get(7));
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            orderList.remove(0);
+            System.out.println("ordersDue: " + ordersDue);
+            System.out.println("orderList: " + orderList);
+        } 
+        
     }
-    private static void totalIngredients(){
-        System.out.println("The ingredients for due orders is as follows:");
-        for (int i = 0; i < ordersDue.size(); i++){
-            if (ordersDue.get(i).contains(recipeList.get(i))){
-                i++;
-                System.out.println(recipeList.get(i));
+    private static void totalIngredients(){ 
+        System.out.println("The ingredients for due orders are as follows:");
+//        for (int i = 0; i < ordersDue.size()-1; i++){
+//            System.out.println(ordersDue.size());
+//            System.out.println(ordersDue.toString()+i);
+//            if (ordersDue.get(i).contains("Vanilla")){
+//                i++;
+//                System.out.println(recipeList);
+//                System.out.println("-----------------------------------------------------------------------");
+//            }
+//        }
+
+        
+        int index = 0; 
+        int count = 0;
+        for (String lineOfCake : ordersDue){
+            count++;
+            
+             if (lineOfCake.contains(ordersDue.get(0))){
+                index = recipeList.indexOf(recipeList);
+                System.out.println(recipeList.get(1));
                 System.out.println("-----------------------------------------------------------------------");
             }
         }
     }
 }
+ 
