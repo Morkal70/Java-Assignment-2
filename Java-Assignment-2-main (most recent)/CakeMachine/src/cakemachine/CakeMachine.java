@@ -263,7 +263,7 @@ public class CakeMachine {
                 ordersDue.remove(i);
             }
         } 
-        System.out.println("orderList: " + orderList);//Displays orderList once for loop has ended, to confirm any changes.
+        System.out.println("ordersDue: " + ordersDue);//Displays ordersDue once for loop has ended, to confirm any changes.
     }
 
     private static void printOldOrders() {//Prints all elements stored in oldOrders
@@ -286,7 +286,7 @@ public class CakeMachine {
     }
 
     private static void totalIngredients(){ 
-        System.out.println("The ingredients for due orders are as follows:");
+        System.out.println("The ingredients for due orders are as follows:\n");
 //        for (int i = 0; i < ordersDue.size()-1; i++){
 //            System.out.println(ordersDue.size());
 //            System.out.println(ordersDue.toString()+i);
