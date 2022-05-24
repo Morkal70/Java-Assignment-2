@@ -89,24 +89,24 @@ public class CakeMachine {
         ordersDue.add("Duncan");
         ordersDue.add("contact details");
         ordersDue.add("delivery address");
-        ordersDue.add("2022-05-19"); //order date
-        ordersDue.add("2022-05-22"); //delivery date
+        ordersDue.add("2022-05-27"); //order date
+        ordersDue.add("2022-05-30"); //delivery date
         ordersDue.add("Vanilla");
         ordersDue.add("large");
         ordersDue.add("heart");
         ordersDue.add("Duncan2");
         ordersDue.add("contact details");
         ordersDue.add("delivery address");
-        ordersDue.add("2022-05-19"); //order date
-        ordersDue.add("2022-05-22"); //delivery date
+        ordersDue.add("2022-05-27"); //order date
+        ordersDue.add("2022-05-30"); //delivery date
         ordersDue.add("Chocolate");
         ordersDue.add("large");
         ordersDue.add("heart");
         ordersDue.add("Duncan3");
         ordersDue.add("contact details");
         ordersDue.add("delivery address");
-        ordersDue.add("2022-05-19"); //order date
-        ordersDue.add("2022-05-22"); //delivery date
+        ordersDue.add("2022-05-21"); //order date
+        ordersDue.add("2022-05-24"); //delivery date
         ordersDue.add("Red Velvet");
         ordersDue.add("large");
         ordersDue.add("heart");
@@ -181,7 +181,7 @@ public class CakeMachine {
         String deliveryDate = orderList.get(4); //stores index 4 inside new string
         LocalDate date = LocalDate.parse(deliveryDate); //converts deliveryDate string to date object
         LocalDate today = LocalDate.now(); // Stores today's date, for comparisons with deliveryDate
-        if (date.compareTo(today) > 0) {
+        if (date.compareTo(today) >= 0) {
             System.out.println("delivery date occurs AFTER today's date");//For checking which statement has been executed
             ordersDue.add(orderList.get(0));
             ordersDue.add(orderList.get(1));
@@ -223,27 +223,6 @@ public class CakeMachine {
             orderList.remove(0);//Removes the same 8 elements from orderList
             System.out.println("orderList: "+ orderList);
             System.out.println("oldOrders: "+ oldOrders);//For confirming the results of the if statement
-
-        } else if (date.compareTo(today) == 0) {
-            System.out.println("delivery date is today");
-            ordersDue.add(orderList.get(0));
-            ordersDue.add(orderList.get(1));
-            ordersDue.add(orderList.get(2));
-            ordersDue.add(orderList.get(3));
-            ordersDue.add(orderList.get(4));
-            ordersDue.add(orderList.get(5));
-            ordersDue.add(orderList.get(6));
-            ordersDue.add(orderList.get(7));//Adds 8 elements (1 full order) to the ordersDue list
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);//Removes the same 8 elements from orderList
-            System.out.println("orderList: " + orderList);
-            System.out.println("ordersDue: " + ordersDue);//For confirming the results of the if statement
         } else {
             System.out.println("Something went wrong");//For identifying comparison errors
         }
