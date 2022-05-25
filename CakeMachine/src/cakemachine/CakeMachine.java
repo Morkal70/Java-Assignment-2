@@ -51,10 +51,8 @@ public class CakeMachine {
             } else if (menuOption == 4) {
                 deleteOrder();
             } else if (menuOption == 5) {
-                //oldOrders();
                 printOldOrders();
             } else if (menuOption == 6) {
-                //dueOrders();
                 printOrdersDue();
             } else if (menuOption == 7) {
                 totalIngredients();
@@ -67,56 +65,96 @@ public class CakeMachine {
 
     }//mainMenu
 
-    private static void recipeTestData() {
+    private static void recipeTestData() {// populates recipeList for testing
         recipeList.add("Vanilla");
-        recipeList.add("Ingredients1");
-        recipeList.add("Instructions1");
+        recipeList.add("125g butter, 125g caster sugar, 125g self raising flour, 1tsp baking powder, 2 eggs, 1tsp vanilla essence");
+        recipeList.add("1. Preheat oven to 180C --- 2. Mix ingredients in a large bowl --- 3. Empty bowl into baking tin --- 4. Cook for 30 minutes");
         recipeList.add("Chocolate");
-        recipeList.add("Ingredients2");
-        recipeList.add("Instructions2");
+        recipeList.add("100g cocoa powder, 125g butter, 125g caster sugar, 125g self raising flour, 1tsp baking powder, 2 eggs, 1tsp vanilla essence");
+        recipeList.add("1. Preheat oven to 180C --- 2. Mix ingredients in a large bowl --- 3. Empty bowl into baking tin --- 4. Cook for 30 minutes");
         recipeList.add("Red Velvet");
-        recipeList.add("Ingredients3");
-        recipeList.add("Instructions3");
+        recipeList.add("2tsp red food colouring, 100g cocoa powder, 125g butter, 125g caster sugar, 125g self raising flour, 1tsp baking powder, 2 eggs, 1tsp vanilla essence");
+        recipeList.add("1. Preheat oven to 180C --- 2. Mix ingredients in a large bowl --- 3. Empty bowl into baking tin --- 4. Cook for 30 minutes");
         recipeList.add("Bruce");
-        recipeList.add("Ingredients4");
-        recipeList.add("Instructions4");
+        recipeList.add("super special ingredient, 100g cocoa powder, 125g butter, 125g caster sugar, 125g self raising flour, 1tsp baking powder, 2 eggs, 1tsp vanilla essence");
+        recipeList.add("1. Preheat oven to 180C --- 2. Mix ingredients in a large bowl --- 3. Empty bowl into baking tin --- 4. Cook for 30 minutes");
         recipeList.add("Best Cake Ever");
-        recipeList.add("Ingredients5");
-        recipeList.add("Instructions5");
+        recipeList.add("classified, classified, classified, classified, classified");
+        recipeList.add("1. Preheat oven to 180C --- 2. Mix ingredients in a large bowl --- 3. Empty bowl into baking tin --- 4. Cook for 30 minutes");
     }
     
-    private static void orderTestData() {
+    private static void orderTestData() {// populates ordersDue for testing
         ordersDue.add("Duncan");
         ordersDue.add("contact details");
         ordersDue.add("delivery address");
-        ordersDue.add("2022-05-27"); //order date
-        ordersDue.add("2022-05-30"); //delivery date
+        ordersDue.add("2023-05-27"); //order date
+        ordersDue.add("2023-05-30"); //delivery date
         ordersDue.add("Vanilla");
         ordersDue.add("large");
         ordersDue.add("heart");
         ordersDue.add("Duncan2");
         ordersDue.add("contact details");
         ordersDue.add("delivery address");
-        ordersDue.add("2022-05-27"); //order date
-        ordersDue.add("2022-05-30"); //delivery date
+        ordersDue.add("2023-05-27"); //order date
+        ordersDue.add("2023-05-30"); //delivery date
         ordersDue.add("Chocolate");
         ordersDue.add("large");
         ordersDue.add("heart");
         ordersDue.add("Duncan3");
         ordersDue.add("contact details");
         ordersDue.add("delivery address");
-        ordersDue.add("2022-05-21"); //order date
-        ordersDue.add("2022-05-24"); //delivery date
+        ordersDue.add("2023-05-21"); //order date
+        ordersDue.add("2023-05-24"); //delivery date
         ordersDue.add("Red Velvet");
         ordersDue.add("large");
         ordersDue.add("heart");
-
+        ordersDue.add("Duncan4");
+        ordersDue.add("contact details");
+        ordersDue.add("delivery address");
+        ordersDue.add("2023-05-21"); //order date
+        ordersDue.add("2023-05-24"); //delivery date
+        ordersDue.add("Red Velvet");
+        ordersDue.add("large");
+        ordersDue.add("heart");
+        ordersDue.add("Duncan5");
+        ordersDue.add("contact details");
+        ordersDue.add("delivery address");
+        ordersDue.add("2023-05-21"); //order date
+        ordersDue.add("2023-05-24"); //delivery date
+        ordersDue.add("Chocolate");
+        ordersDue.add("large");
+        ordersDue.add("heart");
+        ordersDue.add("Duncan6");
+        ordersDue.add("contact details");
+        ordersDue.add("delivery address");
+        ordersDue.add("2023-05-21"); //order date
+        ordersDue.add("2023-05-24"); //delivery date
+        ordersDue.add("Vanilla");
+        ordersDue.add("large");
+        ordersDue.add("heart");
+        
         oldOrders.add("Cher");
         oldOrders.add("contact details");
         oldOrders.add("delivery address");
         oldOrders.add("2022-05-12"); //order date
         oldOrders.add("2022-05-15"); //delivery date
         oldOrders.add("Vanilla");
+        oldOrders.add("large");
+        oldOrders.add("heart");
+        oldOrders.add("Cher");
+        oldOrders.add("contact details");
+        oldOrders.add("delivery address");
+        oldOrders.add("2022-05-12"); //order date
+        oldOrders.add("2022-05-15"); //delivery date
+        oldOrders.add("Chocolate");
+        oldOrders.add("large");
+        oldOrders.add("heart");
+        oldOrders.add("Cher");
+        oldOrders.add("contact details");
+        oldOrders.add("delivery address");
+        oldOrders.add("2022-05-12"); //order date
+        oldOrders.add("2022-05-15"); //delivery date
+        oldOrders.add("Red Velvet");
         oldOrders.add("large");
         oldOrders.add("heart");
 
@@ -134,17 +172,17 @@ public class CakeMachine {
     private static void getName() { //Prompts user for name, then prints text containing their input.
         System.out.println("Please enter your name.");
         username = SC.nextLine();
-        System.out.println("Your username: " + username);
+        //System.out.println("Your username: " + username);
     }
 
-    private static void addRecipe(){ //Adds a user input to index 0, another to 1 and another to 2, then prints list for confirmation.
+    private static void addRecipe(){ //Adds first user input to index 0, second to index 1 and third to index 2, then prints list for confirmation.
         System.out.println("Please enter the name of the cake.");
         recipeList.add(recipeSC.nextLine());
         System.out.println("Please enter the ingredients.");
         recipeList.add(recipeSC.nextLine());
         System.out.println("Please enter the instructions.");
         recipeList.add(recipeSC.nextLine());
-        System.out.println(recipeList);
+        System.out.println(recipeList);//Displays recipeList so status of input can be confirmed
     }
 
     private static void deleteRecipe() { //Deletes a full recipe if user inputs matches any indices
@@ -258,9 +296,9 @@ public class CakeMachine {
         System.out.println("Orders due:\n");
         for (int i = 0; i < ordersDue.size(); i++) {
             System.out.println(ordersDue.get(i));
-                if (i % 8 == 7) {//Adds a string of hyphens to separate each order
-                    System.out.println("-----------------------------------------------------------------------");
-                }
+            if (i % 8 == 7) {//Adds a string of hyphens to separate each order
+                System.out.println("-----------------------------------------------------------------------");
+            }
         }
     }
 
@@ -292,12 +330,17 @@ public class CakeMachine {
 //        String lineOfRecipes = String.valueOf(recipeList);
 //        String lineOfOrders = String.valueOf(ordersDue);
         for (int i = 0; i < ordersDue.size(); i++) {
-            if (ordersDue.contains(recipeList.get(i))) {
-                i++;//Increments by one, because the index after a cake name will always be the ingredients
-                System.out.println(recipeList.get(i));//Prints the ingredients for 1 cake
-                System.out.println("-----------------------------------------------------------------------");//Separates each set of ingredients
+            if (ordersDue.size() == i){
+                break;
             }
-        }//Works, but crashes program when recipeList has more indices than ordersDue
+            for (int j = 0; j < recipeList.size(); j++) {
+                if (ordersDue.get(i).contains(recipeList.get(j))) {
+                    j++;//Increments by one, because the index after a cake name will always be the ingredients
+                    System.out.println(recipeList.get(j));//Prints the ingredients for 1 cake
+                    System.out.println("-----------------------------------------------------------------------");//Separates each set of ingredients
+                } 
+            }//Works, but crashes program when recipeList has more indices than ordersDue
+        }
     }
 }
  
