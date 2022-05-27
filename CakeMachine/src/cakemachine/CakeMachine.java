@@ -29,7 +29,7 @@ public class CakeMachine {
             getName();
         }
         System.out.println("Welcome to Mclovin's Muffins, " + username + "!");
-        while (menuOption != 0) { //The loop will only repeat if the selects a number that isn't 0.
+        while (menuOption != 0) {//The loop will only repeat if the selects a number that isn't 0.
             System.out.println("Select an option\n"
                     + "1. Add recipe \n"
                     + "2. Delete recipe\n"
@@ -41,9 +41,8 @@ public class CakeMachine {
                     + "0. Exit");
 
             menuOption = SC.nextInt();
-
-            if (menuOption == 1) { //User navigates menu with numerical keys, numbers 1 through 7 call methods and 0 exits the program.
-                addRecipe();
+            if (menuOption == 1) {//User navigates menu with numerical keys: numbers 1 through 7 call methods and...
+                addRecipe();      //... 0 exits the program.
             } else if (menuOption == 2) {
                deleteRecipe();
             } else if (menuOption == 3) {
@@ -59,28 +58,28 @@ public class CakeMachine {
             } else if (menuOption == 0) {
                 System.exit(0);
             } else {
-                System.out.println("Please select an option from 1 through 7 to proceed, or 0 to exit"); //User error message
+                System.out.println("Please select an option from 1 through 7 to proceed, or 0 to exit");//User error message
             }//End of if statement.
         }//End of while loop.
 
-    }//mainMenu
+    }//mainMenu()
 
     private static void recipeTestData() {// populates recipeList for testing
         recipeList.add("Vanilla");
         recipeList.add("125g butter, 125g caster sugar, 125g self raising flour, 1tsp baking powder, 2 eggs, 1tsp vanilla essence");
-        recipeList.add("1. Preheat oven to 180C --- 2. Mix ingredients in a large bowl --- 3. Empty bowl into baking tin --- 4. Cook for 30 minutes");
+        recipeList.add("1. Preheat oven to 180C | 2. Mix ingredients in a large bowl | 3. Empty bowl into baking tin | 4. Cook for 30 minutes");
         recipeList.add("Chocolate");
         recipeList.add("100g cocoa powder, 125g butter, 125g caster sugar, 125g self raising flour, 1tsp baking powder, 2 eggs, 1tsp vanilla essence");
-        recipeList.add("1. Preheat oven to 180C --- 2. Mix ingredients in a large bowl --- 3. Empty bowl into baking tin --- 4. Cook for 30 minutes");
+        recipeList.add("1. Preheat oven to 180C | 2. Mix ingredients in a large bowl | 3. Empty bowl into baking tin | 4. Cook for 30 minutes");
         recipeList.add("Red Velvet");
         recipeList.add("2tsp red food colouring, 100g cocoa powder, 125g butter, 125g caster sugar, 125g self raising flour, 1tsp baking powder, 2 eggs, 1tsp vanilla essence");
-        recipeList.add("1. Preheat oven to 180C --- 2. Mix ingredients in a large bowl --- 3. Empty bowl into baking tin --- 4. Cook for 30 minutes");
+        recipeList.add("1. Preheat oven to 180C | 2. Mix ingredients in a large bowl | 3. Empty bowl into baking tin | 4. Cook for 30 minutes");
         recipeList.add("Bruce");
         recipeList.add("super special ingredient, 100g cocoa powder, 125g butter, 125g caster sugar, 125g self raising flour, 1tsp baking powder, 2 eggs, 1tsp vanilla essence");
-        recipeList.add("1. Preheat oven to 180C --- 2. Mix ingredients in a large bowl --- 3. Empty bowl into baking tin --- 4. Cook for 30 minutes");
+        recipeList.add("1. Preheat oven to 180C | 2. Mix ingredients in a large bowl | 3. Empty bowl into baking tin | 4. Cook for 30 minutes");
         recipeList.add("Best Cake Ever");
         recipeList.add("classified, classified, classified, classified, classified");
-        recipeList.add("1. Preheat oven to 180C --- 2. Mix ingredients in a large bowl --- 3. Empty bowl into baking tin --- 4. Cook for 30 minutes");
+        recipeList.add("1. Preheat oven to 180C | 2. Mix ingredients in a large bowl | 3. Empty bowl into baking tin | 4. Cook for 30 minutes");
     }
     
     private static void orderTestData() {// populates ordersDue for testing
@@ -113,7 +112,7 @@ public class CakeMachine {
         ordersDue.add("delivery address");
         ordersDue.add("2023-05-21"); //order date
         ordersDue.add("2023-05-24"); //delivery date
-        ordersDue.add("Red Velvet");
+        ordersDue.add("Bruce");
         ordersDue.add("large");
         ordersDue.add("heart");
         ordersDue.add("Duncan5");
@@ -121,7 +120,7 @@ public class CakeMachine {
         ordersDue.add("delivery address");
         ordersDue.add("2023-05-21"); //order date
         ordersDue.add("2023-05-24"); //delivery date
-        ordersDue.add("Chocolate");
+        ordersDue.add("Best Cake Ever");
         ordersDue.add("large");
         ordersDue.add("heart");
         ordersDue.add("Duncan6");
@@ -133,7 +132,7 @@ public class CakeMachine {
         ordersDue.add("large");
         ordersDue.add("heart");
         
-        oldOrders.add("Cher");
+        oldOrders.add("Cher1");
         oldOrders.add("contact details");
         oldOrders.add("delivery address");
         oldOrders.add("2022-05-12"); //order date
@@ -141,7 +140,7 @@ public class CakeMachine {
         oldOrders.add("Vanilla");
         oldOrders.add("large");
         oldOrders.add("heart");
-        oldOrders.add("Cher");
+        oldOrders.add("Cher2");
         oldOrders.add("contact details");
         oldOrders.add("delivery address");
         oldOrders.add("2022-05-12"); //order date
@@ -149,7 +148,7 @@ public class CakeMachine {
         oldOrders.add("Chocolate");
         oldOrders.add("large");
         oldOrders.add("heart");
-        oldOrders.add("Cher");
+        oldOrders.add("Cher3");
         oldOrders.add("contact details");
         oldOrders.add("delivery address");
         oldOrders.add("2022-05-12"); //order date
@@ -157,32 +156,29 @@ public class CakeMachine {
         oldOrders.add("Red Velvet");
         oldOrders.add("large");
         oldOrders.add("heart");
-
-//        orderList.add("Cher");
-//        orderList.add("contact details");
-//        orderList.add("delivery address");
-//        orderList.add("2022-05-12");
-//        orderList.add("2022-05-15");
-//        orderList.add("Vanilla");
-//        orderList.add("large");
-//        orderList.add("heart");
-
     }
     
     private static void getName() { //Prompts user for name, then prints text containing their input.
         System.out.println("Please enter your name.");
         username = SC.nextLine();
-        //System.out.println("Your username: " + username);
+//        System.out.println("Your username: " + username);
     }
 
-    private static void addRecipe(){ //Adds first user input to index 0, second to index 1 and third to index 2, then prints list for confirmation.
+    private static void addRecipe(){ //Adds first user input to index 0, second to index 1 and third to index 2, then...
+                                     //...prints list for confirmation.
         System.out.println("Please enter the name of the cake.");
         recipeList.add(recipeSC.nextLine());
         System.out.println("Please enter the ingredients.");
         recipeList.add(recipeSC.nextLine());
         System.out.println("Please enter the instructions.");
         recipeList.add(recipeSC.nextLine());
-        System.out.println(recipeList);//Displays recipeList so status of input can be confirmed
+//        System.out.println(recipeList);//Displays recipeList so status of input can be confirmed
+        for (int i = 0; i < recipeList.size(); i++) {
+            System.out.println(recipeList.get(i));
+            if (i % 3 == 2) { //Adds a string of hyphens to separate each order
+                System.out.println("---------------------------------------------------------------------------");
+            }
+        }
     }
 
     private static void deleteRecipe() { //Deletes a full recipe if user inputs matches any indices
@@ -193,11 +189,22 @@ public class CakeMachine {
                 recipeList.remove(i);
                 recipeList.remove(i);
                 recipeList.remove(i);
+                for (int j = 0; j < recipeList.size(); j++) {
+                    if (j == 0){
+                        System.out.println(cakeToDelete + " has been removed from the recipe list.\n");
+                        System.out.println("The recipe list now contains:\n");
+                    }
+                    System.out.println(recipeList.get(j));
+                    if (j % 3 == 2) { //Adds a string of hyphens to separate each recipe
+                    System.out.println("---------------------------------------------------------------------------");
+                    }
+                }
             }
-        } System.out.println(recipeList);//Displays recipeList once for loop has ended, to confirm any changes.
+        }//System.out.println("Recipe list: " + recipeList);//Displays recipeList for testing.
     }
 
-    private static void addOrder(){ //Adds 8 values into orderList, which are then moved to ordersDue or oldOrders based on the delivery date value
+    private static void addOrder(){ //Adds 8 values into orderList, which are then moved to ordersDue or oldOrders...
+                                    //based on the delivery date value
         System.out.println("Please enter the client's name.");
         orderList.add(orderSC.nextLine());
         System.out.println("Please enter the client's contact details.");
@@ -206,7 +213,7 @@ public class CakeMachine {
         orderList.add(orderSC.nextLine());
         LocalDate orderDate = LocalDate.now();
         orderList.add(String.valueOf(orderDate)); //automatically adds today's date as string to list
-        LocalDate orderDatePlusThree = orderDate.plusDays(3);//Adds 3 days to today's date to generate a delivery date
+        LocalDate orderDatePlusThree = orderDate.plusDays(3);//Adds 3 days to today's date to generate delivery date
         orderList.add(String.valueOf(orderDatePlusThree));
         System.out.println("Please enter the type of cake.");
         orderList.add(orderSC.nextLine());
@@ -214,13 +221,13 @@ public class CakeMachine {
         orderList.add(orderSC.nextLine());
         System.out.println("Please enter the cake shape.");
         orderList.add(orderSC.nextLine());
-        System.out.println("orderList: " + orderList);// For checking the contents of orderList
+//        System.out.println("orderList: " + orderList);// For checking the contents of orderList
 
         String deliveryDate = orderList.get(4); //stores index 4 inside new string
         LocalDate date = LocalDate.parse(deliveryDate); //converts deliveryDate string to date object
         LocalDate today = LocalDate.now(); // Stores today's date, for comparisons with deliveryDate
         if (date.compareTo(today) >= 0) {
-            System.out.println("delivery date occurs AFTER today's date");//For checking which statement has been executed
+//            System.out.println("delivery date occurs AFTER today's date");//For checking which statement has been executed
             ordersDue.add(orderList.get(0));
             ordersDue.add(orderList.get(1));
             ordersDue.add(orderList.get(2));
@@ -229,17 +236,9 @@ public class CakeMachine {
             ordersDue.add(orderList.get(5));
             ordersDue.add(orderList.get(6));
             ordersDue.add(orderList.get(7));//Adds 8 elements (1 full order) to the ordersDue list
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);//Removes the same 8 elements from orderList
-            System.out.println("orderList: " + orderList);
+            orderList.removeAll(orderList);//Clears orderList by removing all elements
+            System.out.println("orderList: " + orderList);//For confirming successful removal
             System.out.println("ordersDue: " + ordersDue);//For confirming the results of the if statement
-
 
         } else if (date.compareTo(today) < 0) {
             System.out.println("delivery date occurs BEFORE today's date");//For checking which statement has been executed
@@ -251,19 +250,13 @@ public class CakeMachine {
             oldOrders.add(orderList.get(5));
             oldOrders.add(orderList.get(6));
             oldOrders.add(orderList.get(7));//Adds 8 elements (1 full order) to the oldOrders list
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);
-            orderList.remove(0);//Removes the same 8 elements from orderList
+            orderList.removeAll(orderList);//Clears orderList by removing all elements
             System.out.println("orderList: "+ orderList);
             System.out.println("oldOrders: "+ oldOrders);//For confirming the results of the if statement
         } else {
             System.out.println("Something went wrong");//For identifying comparison errors
-        }
+        }//The elseif statement is functionally useless because the automated date entry is set to present day and...
+         //... future values only. Inclusion facilitates future update that allows manual date entry.
     }
     private static void deleteOrder(){//Deletes a full order if user inputs matches any indices
         System.out.println("Please enter the name of the client to delete their order.");
@@ -284,26 +277,28 @@ public class CakeMachine {
     }
 
     private static void printOldOrders() {//Prints all elements stored in oldOrders
-        System.out.println("Old orders:\n");
+        System.out.println("Old orders:");
+        System.out.println("---------------------------------------------------------------------------");
         for (int i = 0; i < oldOrders.size(); i++) {
             System.out.println(oldOrders.get(i));
             if (i % 8 == 7) { //Adds a string of hyphens to separate each order
-                System.out.println("-----------------------------------------------------------------------");
-            }
-        }
-    }
-    private static void printOrdersDue(){//Prints all elements stored in ordersDue
-        System.out.println("Orders due:\n");
-        for (int i = 0; i < ordersDue.size(); i++) {
-            System.out.println(ordersDue.get(i));
-            if (i % 8 == 7) {//Adds a string of hyphens to separate each order
-                System.out.println("-----------------------------------------------------------------------");
+                System.out.println("---------------------------------------------------------------------------");
             }
         }
     }
 
-    private static void totalIngredients(){ 
-        System.out.println("The ingredients for due orders are as follows:\n");
+    private static void printOrdersDue(){//Prints all elements stored in ordersDue
+        System.out.println("Orders due:");
+        System.out.println("---------------------------------------------------------------------------");
+        for (int i = 0; i < ordersDue.size(); i++) {
+            System.out.println(ordersDue.get(i));
+            if (i % 8 == 7) {//Adds a string of hyphens to separate each order
+                System.out.println("---------------------------------------------------------------------------");
+            }
+        }
+    }
+
+    private static void totalIngredients(){
 //        for (int i = 0; i < ordersDue.size()-1; i++){
 //            System.out.println(ordersDue.size());
 //            System.out.println(ordersDue.toString()+i);
@@ -327,19 +322,18 @@ public class CakeMachine {
 //Failed implementation #2, prints Ingredients1 as many times as there are orders, rather than a new Ingredient set each time
 
 
-//        String lineOfRecipes = String.valueOf(recipeList);
-//        String lineOfOrders = String.valueOf(ordersDue);
-        for (int i = 0; i < ordersDue.size(); i++) {
-            if (ordersDue.size() == i){
-                break;
-            }
-            for (int j = 0; j < recipeList.size(); j++) {
+        System.out.println("The ingredients for due orders are as follows:\n");
+        int k = 0;
+        for (int i = 0; i < ordersDue.size(); i++) {//Iterates through ordersDue
+            for (int j = 0;  j < recipeList.size(); j++ ) {//Iterates through recipeList
                 if (ordersDue.get(i).contains(recipeList.get(j))) {
-                    j++;//Increments by one, because the index after a cake name will always be the ingredients
+                    k++;// Tracks the number of orders
+                    System.out.println("Order " + k + ": " + recipeList.get(j));
+                    j++;//Increments by one again, so that the ingredients are printed and not the name
                     System.out.println(recipeList.get(j));//Prints the ingredients for 1 cake
-                    System.out.println("-----------------------------------------------------------------------");//Separates each set of ingredients
+                    System.out.println("---------------------------------------------------------------------------");
                 } 
-            }//Works, but crashes program when recipeList has more indices than ordersDue
+            }
         }
     }
 }
