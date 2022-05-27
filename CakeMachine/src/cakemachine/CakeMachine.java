@@ -173,6 +173,7 @@ public class CakeMachine {
         System.out.println("Please enter the instructions.");
         recipeList.add(recipeSC.nextLine());
 //        System.out.println(recipeList);//Displays recipeList so status of input can be confirmed
+        System.out.println("The recipe list now contains: \n");
         for (int i = 0; i < recipeList.size(); i++) {
             System.out.println(recipeList.get(i));
             if (i % 3 == 2) { //Adds a string of hyphens to separate each order
